@@ -2,6 +2,8 @@ This is an experiment to make a simple profit calculator.
 It answers the question: when I buy at this price, and sell at this other price, what is my profit margin % ?
 You can set a target profit margin in % and it will advise both a better sell price or buy price to meet stated target if the target % is not met.
 
+Should run on localhost:9001 standard, you can change this of course
+
 These requirements were used in the Claude Opus prompt
 
 Certainly! Here's a comprehensive list of all the requirements for your profit calculator app:
