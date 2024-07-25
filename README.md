@@ -21,10 +21,10 @@ Certainly! Here's a comprehensive list of all the requirements for your profit c
 9. The app should calculate and display the results in real-time as the user types/enters/inputs the buy and sell prices, eliminating the need for a separate "Calculate Profit" button.
 10. The app should be containerized using Docker for easy deployment and portability.
 11. The app should be deployed on a ... VPS (Virtual Private Server) with the IP address xx.xx.xxx.xxx
-12. The app should be accessible via the subdomain kb.mes.team, which should be pointed to the Hetzner VPS IP address using an A record in the DNS settings.
+12. The app should be accessible via the subdomain ..., which should be pointed to the Hetzner VPS IP address using an A record in the DNS settings.
 13. The app should be running inside a Docker container on the Hetzner VPS, with the container port 9001 mapped to the host port 9001.
 14. The Docker container should be configured to always restart unless explicitly stopped, ensuring high availability.
-15. Nginx should be installed on the Hetzner VPS and configured as a reverse proxy to forward requests from kb.mes.team to the Docker container running on localhost:9001.
+15. Nginx should be installed on the Hetzner VPS and configured as a reverse proxy to forward requests from ... to the Docker container running on localhost:9001.
 16. The app should be accessible via HTTPS using a free SSL/TLS certificate obtained from Let's Encrypt using Certbot.
 17. The app's main Python file should be named percentageprofit.py.
 18. The requirements.txt file should specify the necessary dependencies, including Flask.
