@@ -20,7 +20,7 @@ Certainly! Here's a comprehensive list of all the requirements for your profit c
 8. The inputted buy and sell prices should remain visible after the calculation is done, always showing the latest input entered by the user.
 9. The app should calculate and display the results in real-time as the user types/enters/inputs the buy and sell prices, eliminating the need for a separate "Calculate Profit" button.
 10. The app should be containerized using Docker for easy deployment and portability.
-11. The app should be deployed on a Hetzner VPS (Virtual Private Server) with the IP address 37.27.196.125.
+11. The app should be deployed on a ... VPS (Virtual Private Server) with the IP address xx.xx.xxx.xxx
 12. The app should be accessible via the subdomain kb.mes.team, which should be pointed to the Hetzner VPS IP address using an A record in the DNS settings.
 13. The app should be running inside a Docker container on the Hetzner VPS, with the container port 9001 mapped to the host port 9001.
 14. The Docker container should be configured to always restart unless explicitly stopped, ensuring high availability.
