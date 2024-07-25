@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profit Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+        input[type="number"] {
+            width: 200px;
+            padding: 12px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 18px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+        .adjusted-price {
+            color: #007aff;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        .green {
+            color: green;
+        }
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Profit Calculator</h1>
+    <input type="number" id="buy-price" placeholder="Enter buy price" step="0.01" required>
+    <span id="adjusted-buy-price" class="adjusted-price"></span>
+    <br>
+    <input type="number" id="sell-price" placeholder="Enter sell price" step="0.01" required>
+    <span id="adjusted-sell-price" class="adjusted-price"></span>
+    <div id="result" class="result"></div>
+    <br>
+    <a href="/settings">Settings</a>
+
+    <script>
+        const buyPriceInput = document.getElementById('buy-price');
+        const sellPriceInput = document.getElementById('sell-price');
+        const adjustedBuyPriceSpan = document.getElementById('adjusted-buy-price');
+        const adjustedSellPriceSpan = document.getElementById('adjusted-sell-price');
+        const resultDiv = document.getElementById('result');
+
+        function calculateProfit() {
+            const buyPrice = parseFloat(buyPriceInput.value);
+            const sellPrice = parseFloat(sellPriceInput.value);
+            const targetMargin = {{ target_margin }};
+
+            if (buyPrice && sellPrice) {
+                const profitPercentage = ((sellPrice - buyPrice) / buyPrice) * 100;
+                const adjustedBuyPrice = sellPrice / (1 + targetMargin / 100);
+                const adjustedSellPrice = buyPrice * (1 + targetMargin / 100);
+
+                resultDiv.innerHTML = `
+                    <p>Profit Percentage: <span class="${profitPercentage >= targetMargin ? 'green' : 'red'}">${profitPercentage.toFixed(2)}%</span></p>
+                    <p>Target Margin: ${targetMargin}%</p>
+                `;
+
+                if (profitPercentage < targetMargin) {
+                    adjustedBuyPriceSpan.textContent = adjustedBuyPrice.toFixed(2);
+                    adjustedSellPriceSpan.textContent = adjustedSellPrice.toFixed(2);
+                } else {
+                    adjustedBuyPriceSpan.textContent = '';
+                    adjustedSellPriceSpan.textContent = '';
+                }
+            } else {
+                resultDiv.textContent = '';
+                adjustedBuyPriceSpan.textContent = '';
+                adjustedSellPriceSpan.textContent = '';
+            }
+        }
+
+        buyPriceInput.addEventListener('input', calculateProfit);
+        sellPriceInput.addEventListener('input', calculateProfit);
+    </script>
+</body>
+</html>
